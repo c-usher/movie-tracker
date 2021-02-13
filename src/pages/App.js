@@ -52,7 +52,6 @@ export default function App(props) {
 				/>
 				<input type="submit" value="Find Movie Info" />
 			</form>
-			
 		</div>
 	);
 }
