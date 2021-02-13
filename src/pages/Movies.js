@@ -11,11 +11,11 @@ export default function Movies(props) {
 						<div className="movie-image">
 							<img src={i.Poster} />
 						</div>
-						<select value="Add To List">
+						{/* <select value="Add To List">
 							<option>List 1</option>
 							<option>List 2</option>
 							<option>List 3</option>
-						</select>
+						</select> */}
 					</div>
 				);
 			})}

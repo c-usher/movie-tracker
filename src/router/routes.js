@@ -2,12 +2,13 @@ import React from 'react';
 import App from '../pages/App';
 import About from '../pages/About';
 import Home from '../pages/Home';
-import Lists from '../pages/ListPage';
+import ListsPage from '../pages/ListPage';
+import ListPost from '../pages/ListPost';
 
 const routes = [
 	{
-		Component: Lists,
-		key: 'Lists',
+		Component: ListsPage,
+		key: 'ListsPage',
 		path: '/listpage'
 	},
 	{
@@ -19,6 +20,12 @@ const routes = [
 		Component: About,
 		key: 'About',
 		path: '/about'
+	},
+
+	{
+		Component: ListPost,
+		key: 'ListPost',
+		path: '/:id'
 	},
 	{
 		Component: App,

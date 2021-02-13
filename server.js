@@ -21,13 +21,11 @@ if (process.env.NODE_ENV !== 'development'){
   app.use(express.static('public'))
 }
 
+
+app.use(/\.[0-9a-z]+$/i, express.static('public'));
 /* Controller Goes Here Remove the tes*/
-app.get('/test', (req, res)=>{
-	res.status(200).json({
-		website: 'My Website',
-		info: 'Not that much'
-	})
-})
+app.use('/api/lists', require('./controllers/lists'))
+
 /* Controller Ends here */
 //LISTENER
 
