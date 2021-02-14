@@ -2,20 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 export default function App(props) {
-	const [lists, setLists] = useState([]);
 	const titleInput = useRef(null);
 	const bodyInput = useRef(null);
-	useEffect(() => {
-		(async () => {
-			try {
-				const response = await fetch('/api/lists');
-				const data = await response.json();
-				setLists(data);
-			} catch (error) {
-				console.error(error);
-			}
-		})();
-	}, []);
 
 	const handleSubmit = async e => {
 		e.preventDefault();
@@ -33,16 +21,15 @@ export default function App(props) {
 				})
 			});
 			const data = await response.json();
-			setLists([...lists, data]);
+			props.setLists([...props.lists, data]);
 		} catch (error) {
 			console.error(error);
 		}
-		console.log(lists);
 	};
 
 	return (
 		<div className="AppPage">
-			{lists.map(list => {
+			{props.lists.map(list => {
 				return (
 					<div key={list._id}>
 						<h2>

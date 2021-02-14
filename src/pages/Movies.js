@@ -12,6 +12,7 @@ export default function Movies(props) {
 						<div className="movie-image">
 							<img src={i.Poster} />
 						</div>
+						<button>Add to List</button>
 
 						{/* <select value="Add To List">
 							<option>List 1</option>

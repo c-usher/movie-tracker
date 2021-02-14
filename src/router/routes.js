@@ -1,31 +1,18 @@
 import React from 'react';
 import App from '../pages/App';
-import About from '../pages/About';
-import Home from '../pages/Home';
-import ListsPage from '../pages/ListPage';
-import ListPost from '../pages/ListPost';
+import UpdateList from '../pages/UpdateList';
+import ShowList from '../pages/ShowList';
 
 const routes = [
 	{
-		Component: ListsPage,
-		key: 'ListsPage',
-		path: '/listpage'
-	},
-	{
-		Component: Home,
-		key: 'Home',
-		path: '/home'
-	},
-	{
-		Component: About,
-		key: 'About',
-		path: '/about'
-	},
-
-	{
-		Component: ListPost,
-		key: 'ListPost',
+		Component: ShowList,
+		key: 'ShowList',
 		path: '/:id'
+	},
+	{
+		Component: UpdateList,
+		key: 'UpdateList',
+		path: '/:id/edit'
 	},
 	{
 		Component: App,

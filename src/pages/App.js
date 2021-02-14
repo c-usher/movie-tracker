@@ -38,11 +38,16 @@ export default function App(props) {
 			searchURL: query.baseURL + query.apiKey + query.option + query.title
 		});
 	};
-	console.log(movie);
 
 	return (
 		<div>
-			<div>{Object.keys(movie).length ? <Movies movie={movie} /> : ''}</div>
+			<div>
+				{Object.keys(movie).length ? (
+					<Movies movie={movie} listTitle={props.lists} />
+				) : (
+					''
+				)}
+			</div>
 			<form onSubmit={handleSubmit}>
 				<label htmlFor="title"> Title</label>
 				<input
