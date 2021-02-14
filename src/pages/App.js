@@ -38,6 +38,7 @@ export default function App(props) {
 			searchURL: query.baseURL + query.apiKey + query.option + query.title
 		});
 	};
+	console.log(movie);
 
 	return (
 		<div>

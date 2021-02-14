@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Movies(props) {
 	return (
@@ -11,6 +12,7 @@ export default function Movies(props) {
 						<div className="movie-image">
 							<img src={i.Poster} />
 						</div>
+
 						{/* <select value="Add To List">
 							<option>List 1</option>
 							<option>List 2</option>

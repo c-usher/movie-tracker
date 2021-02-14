@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+
 export default function App(props) {
 	const [lists, setLists] = useState([]);
 	const titleInput = useRef(null);
@@ -15,7 +16,6 @@ export default function App(props) {
 			}
 		})();
 	}, []);
-	console.log(lists);
 
 	const handleSubmit = async e => {
 		e.preventDefault();
@@ -37,7 +37,9 @@ export default function App(props) {
 		} catch (error) {
 			console.error(error);
 		}
+		console.log(lists);
 	};
+
 	return (
 		<div className="AppPage">
 			{lists.map(list => {
