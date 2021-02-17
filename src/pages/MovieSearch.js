@@ -42,13 +42,7 @@ export default function App(props) {
 
 	return (
 		<div>
-			<div>
-				{Object.keys(movie).length ? (
-					<Movies movie={movie} listTitle={props.lists} />
-				) : (
-					''
-				)}
-			</div>
+			<div>{Object.keys(movie).length ? <Movies movie={movie} /> : ''}</div>
 			<form onSubmit={handleSubmit}>
 				<label htmlFor="title"> Title</label>
 				<input

@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
+
 import { Link } from 'react-router-dom';
 
 export default function App(props) {
 	const titleInput = useRef(null);
 	const bodyInput = useRef(null);
 	const [lists, setLists] = useState([]);
+
 	useEffect(() => {
 		(async () => {
 			try {

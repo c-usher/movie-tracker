@@ -1,7 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import App from './App';
 
 export default function Movies(props) {
+	const [favorite, setFavorite] = useState({});
 	return (
 		<div className="movies">
 			{props.movie.Search.map(i => {
@@ -12,7 +13,16 @@ export default function Movies(props) {
 						<div className="movie-image">
 							<img src={i.Poster} />
 						</div>
-						<button>Add to List</button>
+						<button
+							onClick={() => {
+								setFavorite(i);
+								<MovieContext.Provider value={{ favorite: favorite }}>
+									<App />
+								</MovieContext.Provider>;
+							}}
+						>
+							Add to List
+						</button>
 
 						{/* <select value="Add To List">
 							<option>List 1</option>

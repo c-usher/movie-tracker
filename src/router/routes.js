@@ -8,7 +8,7 @@ const routes = [
 	{
 		Component: MovieSearch,
 		key: 'MovieSearch',
-		path: '/:id'
+		path: '/moviesearch'
 	},
 	{
 		Component: UpdateList,
@@ -22,7 +22,7 @@ const routes = [
 	},
 	{
 		Component: App,
-		key: 'App',
+		key: 'Favorites',
 		path: '/'
 	}
 ];
