@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import App from './App';
 
 export default function Movies(props) {
 	const [favorite, setFavorite] = useState({});
@@ -16,9 +15,6 @@ export default function Movies(props) {
 						<button
 							onClick={() => {
 								setFavorite(i);
-								<MovieContext.Provider value={{ favorite: favorite }}>
-									<App />
-								</MovieContext.Provider>;
 							}}
 						>
 							Add to List
