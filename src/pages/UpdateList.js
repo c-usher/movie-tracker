@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-export default function UpdateList(props) {
+export default function UpdatePost(props) {
 	const [list, setList] = useState({
 		title: '',
 		body: ''
@@ -59,19 +59,6 @@ export default function UpdateList(props) {
 			<h1>{list.title ? list.title : ''}</h1>
 			<p>{list.body ? list.body : ''}</p>
 			<button onClick={handleDelete}>Delete List</button>
-			<ul>
-				{list.comments && list.comments.length
-					? list.comments.map(comment => {
-							return (
-								<li key={comment._id}>
-									<h3>{comment.name} says...</h3>
-									<p>{comment.message}</p>
-									<small>{comment.createdAt}</small>
-								</li>
-							);
-					  })
-					: ''}
-			</ul>
 			<form
 				style={{ display: 'flex', flexDirection: 'column' }}
 				onSubmit={handleSubmit}
@@ -85,7 +72,7 @@ export default function UpdateList(props) {
 					{' '}
 					Body: <input type="text" ref={bodyInput} defaultValue={list.body} />
 				</label>
-				<input type="submit" value="Update MicroList" />
+				<input type="submit" value="Update List" />
 			</form>
 		</div>
 	);

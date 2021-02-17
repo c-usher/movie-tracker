@@ -4,6 +4,18 @@ import { Link } from 'react-router-dom';
 export default function App(props) {
 	const titleInput = useRef(null);
 	const bodyInput = useRef(null);
+	const [lists, setLists] = useState([]);
+	useEffect(() => {
+		(async () => {
+			try {
+				const response = await fetch('/api/lists');
+				const data = await response.json();
+				setLists(data);
+			} catch (error) {
+				console.error(error);
+			}
+		})();
+	}, []);
 
 	const handleSubmit = async e => {
 		e.preventDefault();

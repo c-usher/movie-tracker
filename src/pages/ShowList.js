@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-export default function ListPost(props) {
+export default function ShowList(props) {
 	const [list, setList] = useState({});
 	useEffect(() => {
 		(async () => {
@@ -18,7 +18,7 @@ export default function ListPost(props) {
 			<h1>{list.title ? list.title : ''}</h1>
 			<p>{list.body ? list.body : ''}</p>
 			<Link to={`/${list._id}/edit`}>
-				<button>Update this List</button>
+				<button>Update List</button>
 			</Link>
 		</div>
 	);

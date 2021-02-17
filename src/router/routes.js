@@ -1,18 +1,24 @@
 import React from 'react';
 import App from '../pages/App';
-import UpdateList from '../pages/UpdateList';
 import ShowList from '../pages/ShowList';
+import UpdateList from '../pages/UpdateList';
+import MovieSearch from '../pages/MovieSearch';
 
 const routes = [
 	{
-		Component: ShowList,
-		key: 'ShowList',
+		Component: MovieSearch,
+		key: 'MovieSearch',
 		path: '/:id'
 	},
 	{
 		Component: UpdateList,
 		key: 'UpdateList',
 		path: '/:id/edit'
+	},
+	{
+		Component: ShowList,
+		key: 'ShowList',
+		path: '/:id'
 	},
 	{
 		Component: App,
