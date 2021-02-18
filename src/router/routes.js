@@ -2,13 +2,13 @@ import React from 'react';
 import App from '../pages/App';
 import ShowList from '../pages/ShowList';
 import UpdateList from '../pages/UpdateList';
-import MovieSearch from '../pages/MovieSearch';
+import List from '../pages/List';
 
 const routes = [
 	{
-		Component: MovieSearch,
-		key: 'MovieSearch',
-		path: '/moviesearch'
+		Component: List,
+		key: 'Favorites',
+		path: '/list'
 	},
 	{
 		Component: UpdateList,
@@ -22,7 +22,7 @@ const routes = [
 	},
 	{
 		Component: App,
-		key: 'Favorites',
+		key: 'FindMovies',
 		path: '/'
 	}
 ];

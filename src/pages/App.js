@@ -1,72 +1,58 @@
-import React, { useState, useEffect, useRef } from 'react';
-
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import Movies from './Movies';
 
 export default function App(props) {
-	const titleInput = useRef(null);
-	const bodyInput = useRef(null);
-	const [lists, setLists] = useState([]);
-
+	const [query, updateQuery] = useState({
+		baseURL: 'http://www.omdbapi.com/?',
+		apiKey: 'apikey=' + '2d475191',
+		option: '&s=',
+		title: '',
+		searchURL: ''
+	});
+	const [movie, setMovie] = useState({});
 	useEffect(() => {
 		(async () => {
-			try {
-				const response = await fetch('/api/lists');
-				const data = await response.json();
-				setLists(data);
-			} catch (error) {
-				console.error(error);
+			if (query.searchURL) {
+				try {
+					const response = await fetch(query.searchURL);
+					const data = await response.json();
+					await setMovie(data);
+				} catch (error) {
+					console.error(error);
+				}
 			}
 		})();
-	}, []);
+	}, [query]);
 
-	const handleSubmit = async e => {
-		e.preventDefault();
-		const titleValue = titleInput.current.value;
-		const bodyValue = bodyInput.current.value;
-		try {
-			const response = await fetch('/api/lists', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify({
-					title: titleValue,
-					body: bodyValue
-				})
-			});
-			const data = await response.json();
-			setLists([...lists, data]);
-		} catch (error) {
-			console.error(error);
-		}
+	const handleChange = event => {
+		updateQuery({
+			...query,
+			...{
+				[event.target.id]: event.target.value
+			}
+		});
+	};
+	const handleSubmit = event => {
+		event.preventDefault();
+		updateQuery({
+			...query,
+			searchURL: query.baseURL + query.apiKey + query.option + query.title
+		});
 	};
 
 	return (
-		<div className="AppPage">
-			{lists.map(list => {
-				return (
-					<div key={list._id}>
-						<h2>
-							<Link to={`/${list._id}`}>{list.title}</Link>
-						</h2>
-						<p>{list.body}</p>
-					</div>
-				);
-			})}
-			<form
-				style={{ display: 'flex', flexDirection: 'column' }}
-				onSubmit={handleSubmit}
-			>
-				<label>
-					{' '}
-					Title: <input type="text" ref={titleInput} />
-				</label>
-				<label>
-					{' '}
-					Body: <input type="text" ref={bodyInput} />
-				</label>
-				<input type="submit" value="Create List" />
+		<div>
+			<form onSubmit={handleSubmit}>
+				<label htmlFor="title"> Title</label>
+				<input
+					id="title"
+					type="text"
+					value={query.title}
+					onChange={handleChange}
+				/>
+				<input type="submit" value="Find Movie Info" />
 			</form>
+			<div>{Object.keys(movie).length ? <Movies movie={movie} /> : ''}</div>
 		</div>
 	);
 }

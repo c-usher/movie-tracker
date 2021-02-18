@@ -1,7 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function Movies(props) {
-	const [favorite, setFavorite] = useState({});
+	const [favorite, setFavorite] = useState([]);
+	const handleAdd = async i => {
+		const movie = JSON.stringify({
+			poster: i.Poster,
+			title: i.Title,
+			type: i.Type,
+			year: i.Year,
+			imdbID: i.imdbID,
+			review: String
+		});
+		console.log(movie);
+		console.log(`this is i ${i}`);
+
+		try {
+			const response = await fetch('/api/lists', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: movie
+			});
+		} catch (e) {
+			console.error(e);
+		}
+	};
 	return (
 		<div className="movies">
 			{props.movie.Search.map(i => {
@@ -12,19 +36,7 @@ export default function Movies(props) {
 						<div className="movie-image">
 							<img src={i.Poster} />
 						</div>
-						<button
-							onClick={() => {
-								setFavorite(i);
-							}}
-						>
-							Add to List
-						</button>
-
-						{/* <select value="Add To List">
-							<option>List 1</option>
-							<option>List 2</option>
-							<option>List 3</option>
-						</select> */}
+						<button onClick={() => handleAdd(i)}>Add to Favorites</button>
 					</div>
 				);
 			})}

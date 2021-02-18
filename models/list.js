@@ -1,15 +1,13 @@
 const { Schema, model } = require('mongoose');
 
 const listSchema = new Schema({
+	poster: String,
 	title: String,
-	movie: {
-		poster: String,
-		title: String,
-		type: String,
-		year: String,
-		imdbID: String
-    },
-    review: String
+	type: String,
+	year: String,
+	imdbID: String,
+
+	review: String
 });
 
-module.exports = model('list', listSchema);
+module.exports = model('List', listSchema);
