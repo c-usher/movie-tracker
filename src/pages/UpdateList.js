@@ -41,15 +41,20 @@ export default function UpdatePost(props) {
 	};
 
 	return (
-		<form
-			style={{ display: 'flex', flexDirection: 'column' }}
-			onSubmit={handleSubmit}
-		>
-			<label>
-				{' '}
-				Comments: <input type="text" ref={input} defaultValue={list.body} />
-			</label>
-			<input type="submit" value="Update Comments" />
-		</form>
+		<div>
+			<img src={list.poster} />
+			<h3>Current Comments: {list.comments}</h3>
+			<form
+				style={{ display: 'flex', flexDirection: 'column' }}
+				onSubmit={handleSubmit}
+			>
+				<label>
+					{' '}
+					Comments:{' '}
+					<input type="text" ref={input} defaultValue={list.comments} />
+				</label>
+				<input type="submit" value="Update Comments" />
+			</form>
+		</div>
 	);
 }
