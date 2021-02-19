@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 export default function UpdatePost(props) {
-	const [list, setList] = useState({});
+	const [list, setList] = useState({
+		comments: ''
+	});
+
+	const input = useRef(null);
 
 	useEffect(() => {
 		(async () => {
@@ -12,11 +16,40 @@ export default function UpdatePost(props) {
 				console.error(error);
 			}
 		})();
-	}, [list]);
+	}, []);
+	console.log(list);
+
+	const handleSubmit = async e => {
+		e.preventDefault();
+		try {
+			const response = await fetch(`/api/lists/${props.match.params.id}`, {
+				method: 'PUT',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					comments: input.current.value
+				})
+			});
+			const data = await response.json();
+			setList(data);
+		} catch (error) {
+			console.error(error);
+		} finally {
+			window.location.assign(`/${props.match.params.id}`);
+		}
+	};
 
 	return (
-		<div>
-			<h1>Hello</h1>
-		</div>
+		<form
+			style={{ display: 'flex', flexDirection: 'column' }}
+			onSubmit={handleSubmit}
+		>
+			<label>
+				{' '}
+				Comments: <input type="text" ref={input} defaultValue={list.body} />
+			</label>
+			<input type="submit" value="Update Comments" />
+		</form>
 	);
 }

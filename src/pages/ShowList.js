@@ -33,7 +33,10 @@ export default function ShowList(props) {
 	};
 	return (
 		<div>
-			<h1>{list.title}{list.year}</h1>
+			<h1>
+				{list.title}
+				{list.year}
+			</h1>
 			<img src={list.poster} />
 			<h3>{list.comments}</h3>
 			<Link to={`/${list._id}/edit`}>
