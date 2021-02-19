@@ -6,8 +6,7 @@ const listSchema = new Schema({
 	type: String,
 	year: String,
 	imdbID: String,
-
-	review: String
+	comments: String
 });
 
 module.exports = model('List', listSchema);

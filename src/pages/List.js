@@ -9,7 +9,6 @@ export default function List(props) {
 			try {
 				const response = await fetch(`/api/lists`);
 				const data = await response.json();
-				console.log(data);
 				setFavorites(data);
 			} catch (error) {
 				console.error(error);
@@ -36,17 +35,13 @@ export default function List(props) {
 		<div>
 			<ul>
 				{favorites.map(movie => {
-					console.log(`this is favorites${favorites}`);
-					console.log(movie);
 					return (
 						<li key={movie.imdbID}>
 							<h2>{movie.title}</h2>
-							<img src={movie.poster} />
-							<h4>{movie.year}</h4>
-							<button onClick={handleDelete}>Delete</button>
-							<Link to={`/${movie._id}/edit`}>
-								<button>Add Comments</button>
+							<Link to={`/${movie._id}`}>
+								<img src={movie.poster} />
 							</Link>
+							<h4>{movie.year}</h4>
 						</li>
 					);
 				})}

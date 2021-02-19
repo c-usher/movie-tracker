@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 export default function Movies(props) {
-	const [favorite, setFavorite] = useState([]);
+	// const [favorite, setFavorite] = useState([]);
 	const handleAdd = async i => {
 		const movie = JSON.stringify({
 			poster: i.Poster,
@@ -11,8 +11,6 @@ export default function Movies(props) {
 			imdbID: i.imdbID,
 			review: String
 		});
-		console.log(movie);
-		console.log(`this is i ${i}`);
 
 		try {
 			const response = await fetch('/api/lists', {
@@ -24,6 +22,8 @@ export default function Movies(props) {
 			});
 		} catch (e) {
 			console.error(e);
+		} finally {
+			window.location.assign('/list');
 		}
 	};
 	return (
