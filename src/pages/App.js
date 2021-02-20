@@ -3,7 +3,7 @@ import Movies from './Movies';
 
 export default function App(props) {
 	const [query, updateQuery] = useState({
-		baseURL: 'http://www.omdbapi.com/?',
+		baseURL: 'https://www.omdbapi.com/?',
 		apiKey: 'apikey=' + '2d475191',
 		option: '&s=',
 		title: '',
