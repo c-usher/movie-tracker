@@ -41,7 +41,7 @@ export default function App(props) {
 	};
 
 	return (
-		<div>
+		<div className="container">
 			<form onSubmit={handleSubmit}>
 				<label htmlFor="title"> Title</label>
 				<input
@@ -50,7 +50,11 @@ export default function App(props) {
 					value={query.title}
 					onChange={handleChange}
 				/>
-				<input type="submit" value="Find Movie Info" />
+				<input
+					className="button-primary"
+					type="submit"
+					value="Find Movie Info"
+				/>
 			</form>
 			<div>{Object.keys(movie).length ? <Movies movie={movie} /> : ''}</div>
 		</div>

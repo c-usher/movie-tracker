@@ -44,10 +44,7 @@ export default function UpdatePost(props) {
 		<div>
 			<img src={list.poster} />
 			<h3>Current Comments: {list.comments}</h3>
-			<form
-				style={{ display: 'flex', flexDirection: 'column' }}
-				onSubmit={handleSubmit}
-			>
+			<form onSubmit={handleSubmit}>
 				<label>
 					{' '}
 					Comments:{' '}

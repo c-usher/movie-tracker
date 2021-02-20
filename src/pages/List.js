@@ -37,11 +37,12 @@ export default function List(props) {
 				{favorites.map(movie => {
 					return (
 						<li key={movie.imdbID}>
-							<h2>{movie.title}</h2>
+							<h2>
+								{movie.title} {movie.year}
+							</h2>
 							<Link to={`/${movie._id}`}>
 								<img src={movie.poster} />
 							</Link>
-							<h4>{movie.year}</h4>
 						</li>
 					);
 				})}

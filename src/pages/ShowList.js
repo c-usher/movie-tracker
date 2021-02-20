@@ -40,7 +40,7 @@ export default function ShowList(props) {
 			<img src={list.poster} />
 			<h3>{list.comments}</h3>
 			<Link to={`/${list._id}/edit`}>
-				<button>Edit Comments</button>
+				<button className="button-primary">Edit Comments</button>
 			</Link>
 			<button onClick={handleDelete}>Delete</button>
 		</div>
