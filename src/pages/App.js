@@ -56,7 +56,9 @@ export default function App(props) {
 					value="Find Movie Info"
 				/>
 			</form>
-			<div>{Object.keys(movie).length ? <Movies movie={movie} /> : ''}</div>
+			<div className="container">
+				{Object.keys(movie).length ? <Movies movie={movie} /> : ''}
+			</div>
 		</div>
 	);
 }

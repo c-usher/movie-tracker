@@ -17,7 +17,6 @@ export default function UpdatePost(props) {
 			}
 		})();
 	}, []);
-	console.log(list);
 
 	const handleSubmit = async e => {
 		e.preventDefault();
@@ -50,7 +49,11 @@ export default function UpdatePost(props) {
 					Comments:{' '}
 					<input type="text" ref={input} defaultValue={list.comments} />
 				</label>
-				<input type="submit" value="Update Comments" />
+				<input
+					className="button-primary"
+					type="submit"
+					value="Update Comments"
+				/>
 			</form>
 		</div>
 	);

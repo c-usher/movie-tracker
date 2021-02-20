@@ -1,11 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Reggae+One&display=swap');
 
+body{
+  font-family: 'Reggae One', cursive; 
+  list-style: none;
+}
+
 
 
 .NavBar {
  
   width: 100%;
   background-color: whitesmoke;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.poster {
+  cursor:pointer
+}
+.poster:hover {
+ background-color: skyblue;
+
 }
 
 

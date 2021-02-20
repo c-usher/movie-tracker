@@ -32,16 +32,13 @@ export default function List(props) {
 		}
 	};
 	return (
-		<div>
-			<ul>
+		<div className="container">
+			<ul className="row">
 				{favorites.map(movie => {
 					return (
-						<li key={movie.imdbID}>
-							<h2>
-								{movie.title} {movie.year}
-							</h2>
+						<li className="four columns" key={movie.imdbID}>
 							<Link to={`/${movie._id}`}>
-								<img src={movie.poster} />
+								<img className="poster" src={movie.poster} />
 							</Link>
 						</li>
 					);

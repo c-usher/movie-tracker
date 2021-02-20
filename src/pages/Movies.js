@@ -27,15 +27,16 @@ export default function Movies(props) {
 		}
 	};
 	return (
-		<div className="movies">
+		<div className="container">
 			{props.movie.Search.map(i => {
 				return (
 					<div className="row" key={i.imdbID}>
-						
-						<div className="movie-image">
+						<div className="four columns">
 							<img src={i.Poster} />
 						</div>
-						<button className="button-primary" onClick={() => handleAdd(i)}>Add to Favorites</button>
+						<button className="button-primary" onClick={() => handleAdd(i)}>
+							Add to Favorites
+						</button>
 					</div>
 				);
 			})}
