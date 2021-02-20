@@ -35,7 +35,7 @@ export default function Movies(props) {
 						<div className="movie-image">
 							<img src={i.Poster} />
 						</div>
-						<button onClick={() => handleAdd(i)}>Add to Favorites</button>
+						<button className="button-primary" onClick={() => handleAdd(i)}>Add to Favorites</button>
 					</div>
 				);
 			})}
